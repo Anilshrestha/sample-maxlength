@@ -156,7 +156,7 @@
 			@param elem {jQuery} The control to check. */
 		_checkLength: function(elem) {
 			var inst = this._getInst(elem);
-			var value = elem.val();
+			var value = elem.attr('type') === 'email' ? elem.val().trim() : elem.val();
 			var len = value.replace(/\r\n/g, '~~').replace(/\n/g, '~~').length;
 			elem.toggleClass(this._fullClass, len >= inst.options.max).
 			toggleClass(this._overflowClass, len > inst.options.max);
